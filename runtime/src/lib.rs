@@ -266,9 +266,14 @@ impl pallet_sudo::Config for Runtime {
 	type Call = Call;
 }
 
+parameter_types! {
+	pub const MaxLength: u32 = 2000;
+}
+
 /// Configure the pallet-template in pallets/template.
 impl pallet_template::Config for Runtime {
 	type Event = Event;
+	type MaxLength = MaxLength;
 }
 
 // Create the runtime by composing the FRAME pallets that were previously configured.
